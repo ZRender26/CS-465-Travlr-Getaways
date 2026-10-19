@@ -1,0 +1,28 @@
+{
+  "name": "cs-465-travlr-getaways",
+  "version": "1.0.0",
+  "description": "Travlr Getaways full stack application",
+  "keywords": [
+    "travlr",
+    "express",
+    "node`"
+  ],
+  "homepage": "https://github.com/Zrender27/CS-465-Travlr-Getaways#readme",
+  "bugs": {
+    "url": "https://github.com/Zrender27/CS-465-Travlr-Getaways/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zrender27/CS-465-Travlr-Getaways.git"
+  },
+  "license": "ISC",
+  "author": "Zoe Render",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
