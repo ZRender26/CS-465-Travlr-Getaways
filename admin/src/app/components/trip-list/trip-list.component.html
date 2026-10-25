@@ -1,0 +1,98 @@
+
+<div class="container mt-4 mb-5">
+  <h1>Travlr Getaways — Trip Administration</h1>
+
+  <p *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </p>
+
+  <button class="btn btn-success mb-4" (click)="addTrip()">
+    + Add New Trip
+  </button>
+
+  <div *ngIf="showForm" class="card mb-4">
+    <div class="card-header">
+      {{ editingTrip ? 'Edit Trip' : 'Add New Trip' }}
+    </div>
+
+    <div class="card-body">
+      <form (ngSubmit)="saveTrip()" #tripForm="ngForm">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Trip Code</label>
+            <input class="form-control" name="code"
+              [(ngModel)]="newTrip.code" required
+              [readonly]="!!editingTrip">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Trip Name</label>
+            <input class="form-control" name="name"
+              [(ngModel)]="newTrip.name" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Duration</label>
+            <input class="form-control" name="length"
+              [(ngModel)]="newTrip.length" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Start Date</label>
+            <input class="form-control" type="date" name="start"
+              [(ngModel)]="newTrip.start" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Resort</label>
+            <input class="form-control" name="resort"
+              [(ngModel)]="newTrip.resort" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Price Per Person</label>
+            <input class="form-control" type="number" name="perPerson"
+              [(ngModel)]="newTrip.perPerson" required min="0">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Image Filename</label>
+            <input class="form-control" name="image"
+              [(ngModel)]="newTrip.image" required>
+          </div>
+
+          <div class="col-12 mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" name="description"
+              [(ngModel)]="newTrip.description" required rows="3"></textarea>
+          </div>
+        </div>
+
+        <button class="btn btn-primary me-2" type="submit"
+          [disabled]="tripForm.invalid">
+          {{ editingTrip ? 'Update Trip' : 'Save Trip' }}
+        </button>
+
+        <button class="btn btn-secondary" type="button"
+          (click)="cancelForm()">
+          Cancel
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-4" *ngFor="let trip of trips">
+      <app-trip-card
+        [trip]="trip"
+        (edit)="editTrip($event)"
+        (delete)="deleteTrip($event)">
+      </app-trip-card>
+    </div>
+  </div>
+
+  <p *ngIf="!errorMessage && trips.length === 0">
+    No trips are available.
+  </p>
+</div>
+
