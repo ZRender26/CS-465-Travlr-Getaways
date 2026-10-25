@@ -86,7 +86,3 @@ Testing included retrieving trip records, looking up an individual trip, logging
 ## Course Reflection
 
 This project strengthened my understanding of how a full-stack application connects a customer-facing website, an SPA, an API, and a database. I practiced working with Express routes, Angular components, JSON request and response bodies, MongoDB/Mongoose models, and JWT authentication. I also learned that testing needs to include both normal application behavior and security boundaries. These skills are relevant to software engineering roles because they demonstrate experience building, integrating, troubleshooting, and documenting a web application.
-
-## AI Use Acknowledgment
-
-Generative AI was used as a support tool to help organize and edit the README and reflection, and to explain concepts during development. The project implementation, testing, and final submission should be reviewed by the student to ensure the documentation accurately reflects the submitted code and work.
